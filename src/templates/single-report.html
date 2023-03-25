@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<a href="{% url 'index' %}" class="btn btn-primary">Go back to home</a> <hr/>
+
+<!--
+    Add following functionality to the app:
+    1) Able to delete reports
+    2) Able to edit reports
+    3) Able to add URLs of images to report
+    4) Displaying those images in report detail page
+-->
+
+<a href="#" class="btn btn-danger">Delete</a>
+<a href="#" class="btn btn-warning">Update</a><hr/>
+
+
+
+{{report.name}}<hr/>
+{{report.user.username}}<hr/>
+{{report.data}}<hr/>
+{{report.description}}<hr/>
+
+
+
+{% endblock %}

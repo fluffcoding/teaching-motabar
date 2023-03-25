@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>My Reports</h1>
+        <p>You have {{reports|length}} reports</p>
+        {% for item in reports %}
+        <div class="card m-3  ">
+            <div class="card-header">   
+                    {{item.name}}   
+           : {{item.user.username}}
+
+            </div>
+            
+            <div class="card-body mt-4">
+                {% if item.description %}
+                {{item.description}}
+                {% else %}
+                There is no description
+                {% endif %}
+          
+            </div>
+       
+          
+            <div class="card-footer">
+                <a class="btn btn-primary" href="{% url 'single-report' item.id %}">Edit</a>
+            </div>
+        </div>
+        {% empty %}
+        <p>There are no reports</p>
+        {% endfor %}
+        <a href="{% url 'create-report' %}" class="btn btn-primary">Click here to create reports</a>
+
+
+{% endblock %}
